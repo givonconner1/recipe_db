@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'nested_form_fields'
+gem 'carrierwave', '~> 1.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
