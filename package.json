@@ -1,5 +1,7 @@
 {
   "name": "recipe_db",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "owl.carousel": "^2.3.4"
+  }
 }
