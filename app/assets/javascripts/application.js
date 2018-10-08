@@ -19,5 +19,3 @@
 //= require bootstrap-sprockets
 //= require nested_form_fields
 //= require_tree .
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
