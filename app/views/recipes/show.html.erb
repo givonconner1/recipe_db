@@ -11,28 +11,33 @@
     </div>
     <%= image_tag @recipe.image.url, class: "recipe-show" %>
       <% end %>
-    <div class="container">
-      <p>
-        <strong>Description:</strong>
-        <%= @recipe.description %>
-      </p>
-    </div>
   </div>
 </div>
-  <h3>Ingredients</h3>
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+<div class="col-md-4">
+  <div class="ingredient-list">
+    <h3>Ingredients</h3>
     <ul>
       <% for @ingredient in @recipe.ingredients %>
         <li><%= @ingredient.content %></li>
       <% end %>
     </ul>
-<p>
-<p>
-  <h3>Steps</h3>
-    <ol>
-      <% for @step in @recipe.steps %>
-        <li><%= @step.direction %></li>
-      <% end %>
-    </ol>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="steps-list">
+    <h3>Steps</h3>
+      <ol>
+        <% for @step in @recipe.steps %>
+          <li><%= @step.direction %></li>
+        <% end %>
+      </ol>
+    </ul>
+  </div>
+</div>
 </p>
 </p>
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
