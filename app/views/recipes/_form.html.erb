@@ -10,43 +10,46 @@
       </ul>
     </div>
   <% end %>
-<div class="form-style-8">
-  <h3>Add a New Recipe</h3>
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: "Recipe Name" %>
+  <div class="container">
+    <div class="form-style-8">
+      <h3>Add a New Recipe</h3>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, placeholder: "Recipe Name" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+      <div class="form-group">
+        <h3>Add Ingredients</h3>
+          <%= form.nested_fields_for :ingredients do |ingredient| %>
+            <%= ingredient.text_field :content, placeholder: "New Ingredient" %>
+            <%= ingredient.remove_nested_fields_link %>
+          <% end %>
+            <%= form.add_nested_fields_link :ingredients %>
+        </div>
+        <div class="form-group">
+        <h3>Add Steps</h3>
+          <%= form.nested_fields_for :steps do |step| %>
+            <%= step.text_field :direction %>
+            <%= step.remove_nested_fields_link %>
+          <% end %>
+            <%= form.add_nested_fields_link :steps %>
+        </div>
+        <div class="form-group">
+        <%= form.file_field :image %>
+        <% if @recipe.image? %>
+          <%= image_tag @recipe.image.url, class: "recipe-show" %>
+          <%= form.check_box :remove_image %>
+            Remove Image
+        <% end %>
+     </div>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>  
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-  <div class="form-group">
-    <h3>Add Ingredients</h3>
-      <%= form.nested_fields_for :ingredients do |ingredient| %>
-        <%= ingredient.text_field :content, placeholder: "New Ingredient" %>
-        <%= ingredient.remove_nested_fields_link %>
-      <% end %>
-        <%= form.add_nested_fields_link :ingredients %>
-    </div>
-    <div class="form-group">
-    <h3>Add Steps</h3>
-      <%= form.nested_fields_for :steps do |step| %>
-        <%= step.text_field :direction %>
-        <%= step.remove_nested_fields_link %>
-      <% end %>
-        <%= form.add_nested_fields_link :steps %>
-    </div>
-    <div class="form-group">
-    <%= form.file_field :image %>
-    <% if @recipe.image? %>
-      <%= image_tag @recipe.image.url, class: "recipe-show" %>
-      <%= form.check_box :remove_image %>
-        Remove Image
-    <% end %>
- </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-</div>
 <% end %>

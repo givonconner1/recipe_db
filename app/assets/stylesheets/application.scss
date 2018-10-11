@@ -124,6 +124,15 @@ div.pic-container {
   margin-right: 30%;
 }
 
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 1024px) {
+.container {
+    width: 100%;
+    height: 100%;
+}
+}
+
 div.container button {
   align-content: center;
   text-align: center;
